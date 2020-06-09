@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.grey
       ),
       home: MyHomePage(),
     );
@@ -33,6 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("N2 - Atividade 02"),
       ),
       body: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black)
+        ),
         child: Center(
           child: FutureBuilder(
             future: DefaultAssetBundle.of(context).loadString('arquivos/fotos.json'),
@@ -46,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Image.network(fotosJson[index]['thumbnailUrl'],
                             height: 120, width: 120),
-                        Text("Titulo " + fotosJson[index]['title'],style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15))
+                        Text("Titulo " + fotosJson[index]['title'],style: TextStyle(fontSize: 14), textAlign: TextAlign.center)
                       ],
                     ),
                   );
